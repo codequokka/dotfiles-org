@@ -29,7 +29,7 @@ manage_os_packages() {
     fi
 
     for package in "${packages[@]}"; do
-      sudo apt install -y "$package"
+      sudo apt-get install -y "$package"
     done
   elif (type 'dnf' >/dev/null 2>&1); then
     sudo dnf update
@@ -44,7 +44,7 @@ manage_os_packages() {
 
     # Since it is difficult to get appimages to work in a container,
     # use the package manager to install them.
-    if [[ -e /.dockerenv || -v GITHUB_ACTIONS ]]; then
+    if [[ -e /.dockerenv ]]; then
       packages+=(
         fish
         neovim
