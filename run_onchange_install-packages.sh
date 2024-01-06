@@ -5,8 +5,8 @@
 # -----------------------------------------------------------------------------
 manage_os_packages() {
   if (type 'apt' >/dev/null 2>&1); then
-    sudo apt update
-    sudo apt upgarde
+    sudo apt-get update
+    sudo apt-get upgrade -y
 
     packages=(
       fuse
