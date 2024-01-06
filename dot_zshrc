@@ -1,6 +1,6 @@
 # shellcheck disable=all
 # ------------------------------------------------------------------------------
-# Commonm environment variables
+# Common environment variables
 # ------------------------------------------------------------------------------
 typeset -U path PATH
 path=(

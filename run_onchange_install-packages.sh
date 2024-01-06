@@ -4,7 +4,8 @@
 # OS packages
 # -----------------------------------------------------------------------------
 manage_os_packages() {
-  if (type 'apt' >/dev/null 2>&1); then
+  # Debian variants
+  if (type 'apt-get' >/dev/null 2>&1); then
     sudo apt-get update
     sudo apt-get upgrade -y
 
@@ -14,24 +15,11 @@ manage_os_packages() {
       zsh
     )
 
-    # Since it is difficult to get appimages to work in a container,
-    # use the package manager to install them.
-    # if [[ -e /.dockerenv ]]; then
-    #   packages+=(
-    #     fish
-    #     neovim
-    #     tmux
-    #   )
-
-    #   rm ~/.local/bin/fish
-    #   rm ~/.local/bin/nvim
-    #   rm ~/.local/bin/tmux
-    # fi
-
     for package in "${packages[@]}"; do
       sudo apt-get install -y "$package"
     done
   elif (type 'dnf' >/dev/null 2>&1); then
+    # RHEL variants
     sudo dnf update
 
     packages=(
@@ -41,20 +29,6 @@ manage_os_packages() {
       util-linux-user
       zsh
     )
-
-    # Since it is difficult to get appimages to work in a container,
-    # use the package manager to install them.
-    if [[ -e /.dockerenv ]]; then
-      packages+=(
-        fish
-        neovim
-        tmux
-      )
-
-      rm ~/.local/bin/fish
-      rm ~/.local/bin/nvim
-      rm ~/.local/bin/tmux
-    fi
 
     for package in "${packages[@]}"; do
       sudo dnf install -y "$package"
