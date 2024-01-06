@@ -8,7 +8,7 @@ manage_os_packages() {
     sudo apt-get update
     sudo apt-get upgrade -y
 
-    required_packages=(
+    packages=(
       fuse
       git
       zsh
@@ -17,7 +17,7 @@ manage_os_packages() {
     # Since it is difficult to get appimages to work in a container,
     # use the package manager to install them.
     if [[ -e /.dockerenv || -v GITHUB_ACTIONS ]]; then
-      appimage_packages+=(
+      packages+=(
         fish
         neovim
         tmux
@@ -26,11 +26,7 @@ manage_os_packages() {
       rm ~/.local/bin/fish
       rm ~/.local/bin/nvim
       rm ~/.local/bin/tmux
-    else
-      appimage_packages=()
     fi
-
-    packages=("${required_packages[@]} ${appimage_packages[@]}")
 
     for package in "${packages[@]}"; do
       sudo apt install -y "$package"
@@ -38,7 +34,7 @@ manage_os_packages() {
   elif (type 'dnf' >/dev/null 2>&1); then
     sudo dnf update
 
-    required_packages=(
+    packages=(
       epel-release
       fuse
       git
@@ -49,7 +45,7 @@ manage_os_packages() {
     # Since it is difficult to get appimages to work in a container,
     # use the package manager to install them.
     if [[ -e /.dockerenv || -v GITHUB_ACTIONS ]]; then
-      appimage_packages+=(
+      packages+=(
         fish
         neovim
         tmux
@@ -58,11 +54,7 @@ manage_os_packages() {
       rm ~/.local/bin/fish
       rm ~/.local/bin/nvim
       rm ~/.local/bin/tmux
-    else
-      appimage_packages=()
     fi
-
-    packages=("${required_packages[@]} ${appimage_packages[@]}")
 
     for package in "${packages[@]}"; do
       sudo dnf install -y "$package"
