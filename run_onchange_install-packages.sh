@@ -16,7 +16,7 @@ manage_os_packages() {
 
     # Since it is difficult to get appimages to work in a container,
     # use the package manager to install them.
-    if [[ -e /.dockerenv || -v GITHUB_ACTIONS ]]; then
+    if [[ -e /.dockerenv ]]; then
       packages+=(
         fish
         neovim
