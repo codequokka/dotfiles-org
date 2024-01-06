@@ -38,16 +38,7 @@ alias tree='exa -T -a -I ".git" --icons'
 alias -g J='| jq'
 alias -g G='| rg -i'
 
-# Expand global aliases by space
-expand-global-alias() {
-  if [[ $LBUFFER =~ [A-Z0-9]+$ ]]; then
-    zle _expand_alias
-    zle expand-word
-  fi
-  zle self-insert
-}
-zle -N expand-global-alias
-bindkey " " expand-global-alias
+# abbr import-aliase
 
 # ------------------------------------------------------------------------------
 # Completions
