@@ -16,17 +16,17 @@ manage_os_packages() {
 
     # Since it is difficult to get appimages to work in a container,
     # use the package manager to install them.
-    if [[ -e /.dockerenv ]]; then
-      packages+=(
-        fish
-        neovim
-        tmux
-      )
+    # if [[ -e /.dockerenv ]]; then
+    #   packages+=(
+    #     fish
+    #     neovim
+    #     tmux
+    #   )
 
-      rm ~/.local/bin/fish
-      rm ~/.local/bin/nvim
-      rm ~/.local/bin/tmux
-    fi
+    #   rm ~/.local/bin/fish
+    #   rm ~/.local/bin/nvim
+    #   rm ~/.local/bin/tmux
+    # fi
 
     for package in "${packages[@]}"; do
       sudo apt-get install -y "$package"
