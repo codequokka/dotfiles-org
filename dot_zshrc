@@ -1,6 +1,6 @@
 # shellcheck disable=all
 # ------------------------------------------------------------------------------
-# Commonm environment variables
+# Common environment variables
 # ------------------------------------------------------------------------------
 typeset -U path PATH
 path=(
@@ -28,26 +28,17 @@ bindkey -e
 # Aliases
 # ------------------------------------------------------------------------------
 alias g='git'
-alias ls='exa'
-alias l='exa -l --icons --git'
-alias la='exa -l -a --icons --git'
-alias tree='exa -T -a -I ".git" --icons'
-alias n='nvim'
 alias k='kubectl'
+alias l='exa -l --icons --git'
+alias ls='exa'
+alias la='exa -l -a --icons --git'
+alias n='nvim'
+alias tree='exa -T -a -I ".git" --icons'
 
 alias -g J='| jq'
 alias -g G='| rg -i'
 
-# Expand global aliases by space
-expand-global-alias() {
-  if [[ $LBUFFER =~ [A-Z0-9]+$ ]]; then
-    zle _expand_alias
-    zle expand-word
-  fi
-  zle self-insert
-}
-zle -N expand-global-alias
-bindkey " " expand-global-alias
+# abbr import-aliase
 
 # ------------------------------------------------------------------------------
 # Completions
@@ -57,16 +48,6 @@ autoload -Uz compinit && compinit
 
 # Zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=grey,bg=grey,bold,underline"
-
-# Shelldon
-eval "$(sheldon source)"
-eval "$(sheldon completions --shell zsh)"
-
-# Chezmoi
-eval "$(chezmoi completion zsh)"
-
-# Starship
-eval "$(starship init zsh)"
 
 # ------------------------------------------------------------------------------
 # History
@@ -95,6 +76,23 @@ setopt hist_reduce_blanks
 
 # Don't save histories with history command
 setopt hist_no_store
+
+# ------------------------------------------------------------------------------
+#  Appimage
+# ------------------------------------------------------------------------------
+if [[ -e /.dockerenv ]]; then
+  export APPIMAGE_EXTRACT_AND_RUN=1
+fi
+
+# ------------------------------------------------------------------------------
+#  Chezmoi
+# ------------------------------------------------------------------------------
+eval "$(chezmoi completion zsh)"
+
+# ------------------------------------------------------------------------------
+# Direnv
+# ------------------------------------------------------------------------------
+eval "$(direnv hook zsh)"
 
 # ------------------------------------------------------------------------------
 # Fzf
@@ -189,6 +187,27 @@ function get_gh_latest_release() {
 }
 
 # ------------------------------------------------------------------------------
+# Helm
+# ------------------------------------------------------------------------------
+source <(helm completion zsh)
+
+# ------------------------------------------------------------------------------
+# Kubectl
+# ------------------------------------------------------------------------------
+source <(kubectl completion zsh)
+
+# ------------------------------------------------------------------------------
+# Shelldon
+# ------------------------------------------------------------------------------
+eval "$(sheldon source)"
+eval "$(sheldon completions --shell zsh)"
+
+# ------------------------------------------------------------------------------
+# Starship
+# ------------------------------------------------------------------------------
+eval "$(starship init zsh)"
+
+# ------------------------------------------------------------------------------
 # Tmux
 # ------------------------------------------------------------------------------
 # Start the tmux session if not alraedy in the tmux session
@@ -231,18 +250,3 @@ function execute_zoxide() {
 }
 zle -N execute_zoxide
 bindkey '^j' execute_zoxide
-
-# ------------------------------------------------------------------------------
-# Direnv
-# ------------------------------------------------------------------------------
-eval "$(direnv hook zsh)"
-
-# ------------------------------------------------------------------------------
-# Kubectl
-# ------------------------------------------------------------------------------
-source <(kubectl completion zsh)
-
-# ------------------------------------------------------------------------------
-# Kubectl
-# ------------------------------------------------------------------------------
-source <(helm completion zsh)

@@ -41,3 +41,7 @@ apply = ["defer"]
 [plugins.fzf-tab]
 github = "Aloxaf/fzf-tab"
 apply = ["defer"]
+
+[plugins.zsh-abbr]
+github = "olets/zsh-abbr"
+apply = ["defer"]

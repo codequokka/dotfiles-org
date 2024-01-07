@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # -----------------------------------------------------------------------------
-# Packages
+# OS packages
 # -----------------------------------------------------------------------------
 manage_os_packages() {
-  if (type 'apt' >/dev/null 2>&1); then
-    sudo apt update
-    sudo apt upgarde
+  # Debian variants
+  if (type 'apt-get' >/dev/null 2>&1); then
+    sudo apt-get update
+    sudo apt-get upgrade -y
 
     packages=(
       fuse
@@ -14,47 +15,20 @@ manage_os_packages() {
       zsh
     )
 
-    # Since it is difficult to get appimages to work in a container,
-    # use the package manager to install them.
-    if [[ -e /.dockerenv || -v GITHUB_ACTIONS ]]; then
-      packages+=(
-        tmux
-        neovim
-        fish
-      )
-
-      rm ~/.local/bin/tmux
-      rm ~/.local/bin/nvim
-      rm ~/.local/bin/fish
-    fi
-
     for package in "${packages[@]}"; do
-      sudo apt install -y "$package"
+      sudo apt-get install -y "$package"
     done
   elif (type 'dnf' >/dev/null 2>&1); then
+    # RHEL variants
     sudo dnf update
 
     packages=(
       epel-release
-      util-linux-user
       fuse
       git
+      util-linux-user
       zsh
     )
-
-    # Since it is difficult to get appimages to work in a container,
-    # use the package manager to install them.
-    if [[ -e /.dockerenv || -v GITHUB_ACTIONS ]]; then
-      packages+=(
-        tmux
-        neovim
-        fish
-      )
-
-      rm ~/.local/bin/tmux
-      rm ~/.local/bin/nvim
-      rm ~/.local/bin/fish
-    fi
 
     for package in "${packages[@]}"; do
       sudo dnf install -y "$package"
