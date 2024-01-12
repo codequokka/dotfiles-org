@@ -13,9 +13,9 @@ jobs:
         run: ./install.sh
 
       - name: Test dotfiles deployments
-        run: cd test; goss validate -f tap | tee goss_validate.tap
+        run: cd test; goss validate -f tap | tee /tmp/goss_validate.tap
 
       - uses: pcolby/tap-summary@v1
         with:
-          path: test/*.tap
-          # summary-file: path/to/output/file.md
+          path: /tmp/goss_validate.tap
+          summary-file: /tmp/goss_validate.md
