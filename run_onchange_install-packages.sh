@@ -4,10 +4,11 @@
 # OS packages
 # -----------------------------------------------------------------------------
 manage_os_packages() {
-  # Debian variants
   if (type 'apt-get' >/dev/null 2>&1); then
-    sudo apt-get update
-    sudo apt-get upgrade -y
+    # Debian variants
+
+    # sudo apt-get update
+    # sudo apt-get upgrade -y
 
     packages=(
       fuse
@@ -19,8 +20,9 @@ manage_os_packages() {
       sudo apt-get install -y "$package"
     done
   elif (type 'dnf' >/dev/null 2>&1); then
-    # RHEL variants
-    sudo dnf update
+    # Redhat variants
+
+    # sudo dnf update
 
     packages=(
       epel-release
@@ -34,7 +36,7 @@ manage_os_packages() {
       sudo dnf install -y "$package"
     done
   else
-    echo 'This OS is not supported!'
+    echo 'The current OS is not supported!'
     exit 1
   fi
 }
