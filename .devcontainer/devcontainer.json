@@ -33,7 +33,8 @@
         "foxundermoon.shell-format",
         "timonwong.shellcheck",
         "bungcip.better-toml",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "github.vscode-github-actions"
       ]
     }
   },
