@@ -22,7 +22,8 @@ manage_os_packages() {
   elif (type 'dnf' >/dev/null 2>&1); then
     # Redhat variants
 
-    # sudo dnf update
+    # sudo dnf check-update
+    # sudo dnf update -y
 
     packages=(
       epel-release
@@ -46,12 +47,6 @@ manage_os_packages
 # -----------------------------------------------------------------------------
 # Shell
 # -----------------------------------------------------------------------------
-# Plugin manager
-if ! (type 'sheldon' >/dev/null 2>&1); then
-  curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh |
-    bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
-fi
-
 # Prompt
 if ! (type 'starship' >/dev/null 2>&1); then
   curl -fsSL https://starship.rs/install.sh |
