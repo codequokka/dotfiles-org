@@ -19,3 +19,9 @@ jobs:
         with:
           path: /tmp/goss_validate.tap
           summary-file: /tmp/goss_validate.md
+
+      - name: Debug
+        run: cat /tmp/goss_validate.tap
+
+      - name: Debug
+        run: cat /tmp/goss_validate.md
