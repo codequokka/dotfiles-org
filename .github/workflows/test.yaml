@@ -13,15 +13,10 @@ jobs:
         run: ./install.sh
 
       - name: Test dotfiles deployments
-        run: cd test; goss validate -f tap | tee /tmp/goss_validate.tap
+        run: cd test; goss validate -f junit | tee /tmp/goss_validate.xml
 
-      - uses: pcolby/tap-summary@v1
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v2
+        if: always()
         with:
-          path: /tmp/goss_validate.tap
-          summary-file: /tmp/goss_validate.md
-
-      - name: Debug
-        run: cat /tmp/goss_validate.tap
-
-      - name: Debug
-        run: cat /tmp/goss_validate.md
+          report_paths: /tmp/goss_validate.xml
