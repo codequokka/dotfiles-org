@@ -3,7 +3,7 @@ name: Test dotfiles deployments
 on: [push]
 
 jobs:
-  deploy:
+  test_dotfiles_deployment:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
