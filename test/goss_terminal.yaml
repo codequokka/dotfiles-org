@@ -7,3 +7,7 @@ command:
   zellij:
     exec: zellij --version
     exit-status: 0
+
+  fail:
+    exec: fail
+    exit-status: 0

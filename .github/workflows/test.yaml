@@ -21,5 +21,5 @@ jobs:
         with:
           report_paths: /tmp/goss_validate.xml
           annotate_only: true
-          detailed_summary: true
+          # detailed_summary: true
           include_passed: true
