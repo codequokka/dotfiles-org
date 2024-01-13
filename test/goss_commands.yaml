@@ -32,6 +32,10 @@ command:
     exec: ghq --version
     exit-status: 0
 
+  git:
+    exec: git --version
+    exit-status: 0
+
   goss:
     exec: goss --version
     exit-status: 0

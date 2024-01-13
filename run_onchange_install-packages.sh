@@ -4,10 +4,11 @@
 # OS packages
 # -----------------------------------------------------------------------------
 manage_os_packages() {
-  # Debian variants
   if (type 'apt-get' >/dev/null 2>&1); then
-    sudo apt-get update
-    sudo apt-get upgrade -y
+    # Debian variants
+
+    # sudo apt-get update
+    # sudo apt-get upgrade -y
 
     packages=(
       fuse
@@ -19,8 +20,10 @@ manage_os_packages() {
       sudo apt-get install -y "$package"
     done
   elif (type 'dnf' >/dev/null 2>&1); then
-    # RHEL variants
-    sudo dnf update
+    # Redhat variants
+
+    # sudo dnf check-update
+    # sudo dnf update -y
 
     packages=(
       epel-release
@@ -34,27 +37,12 @@ manage_os_packages() {
       sudo dnf install -y "$package"
     done
   else
-    echo 'This OS is not supported!'
+    echo 'The current OS is not supported!'
     exit 1
   fi
 }
 
 manage_os_packages
-
-# -----------------------------------------------------------------------------
-# Shell
-# -----------------------------------------------------------------------------
-# Plugin manager
-if ! (type 'sheldon' >/dev/null 2>&1); then
-  curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh |
-    bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
-fi
-
-# Prompt
-if ! (type 'starship' >/dev/null 2>&1); then
-  curl -fsSL https://starship.rs/install.sh |
-    sh -s -- --yes --bin-dir ~/.local/bin
-fi
 
 # -----------------------------------------------------------------------------
 # Terminal
