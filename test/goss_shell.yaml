@@ -1,9 +1,5 @@
 ---
 command:
-  zsh:
-    exec: zsh --version
-    exit-status: 0
-
   fish:
     exec: fish --version
     exit-status: 0
@@ -16,6 +12,10 @@ command:
     exec: starship --version
     exit-status: 0
 
-  goss:
+  zoxide:
     exec: zoxide --version
+    exit-status: 0
+
+  zsh:
+    exec: zsh --version
     exit-status: 0
