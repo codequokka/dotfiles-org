@@ -32,7 +32,7 @@
         "rogalmic.bash-debug",
         "foxundermoon.shell-format",
         "timonwong.shellcheck",
-        "bungcip.better-toml",
+        "tamasfe.even-better-toml",
         "esbenp.prettier-vscode",
         "github.vscode-github-actions"
       ]
