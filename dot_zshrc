@@ -206,6 +206,7 @@ eval "$(sheldon completions --shell zsh)"
 # Starship
 # ------------------------------------------------------------------------------
 eval "$(starship init zsh)"
+eval "$(starship completions zsh)"
 
 # ------------------------------------------------------------------------------
 # Tmux
