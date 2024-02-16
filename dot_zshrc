@@ -49,6 +49,14 @@ autoload -Uz compinit && compinit
 # Zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=grey,bg=grey,bold,underline"
 
+# Fzf-tab
+zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+zstyle ':fzf-tab:*' switch-group ',' '.'
+zstyle ':fzf-tab:*' fzf-pad 4
+
 # ------------------------------------------------------------------------------
 # History
 # ------------------------------------------------------------------------------
