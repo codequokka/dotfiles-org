@@ -12,7 +12,7 @@
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.formatOnSave": true,
           "editor.codeActionsOnSave": {
-            "source.fixAll": true
+            "source.fixAll": "explicit"
           }
         },
         "[shellscript]": {
@@ -34,7 +34,8 @@
         "timonwong.shellcheck",
         "tamasfe.even-better-toml",
         "esbenp.prettier-vscode",
-        "github.vscode-github-actions"
+        "github.vscode-github-actions",
+        "signageos.signageos-vscode-sops"
       ]
     }
   },
