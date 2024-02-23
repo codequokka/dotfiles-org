@@ -83,3 +83,7 @@ command:
   sops:
     exec: sops --version
     exit-status: 0
+
+  yq:
+    exec: yq --version
+    exit-status: 0
