@@ -5,6 +5,9 @@
     "TZ": "Asia/Tokyo"
   },
   "runArgs": ["--init"],
+  "mounts": [
+    "source=${localEnv:HOME}/.zsh_history,target=/home/vscode/.zsh_history,type=bind,consistency=cached"
+  ],
   "customizations": {
     "vscode": {
       "settings": {
