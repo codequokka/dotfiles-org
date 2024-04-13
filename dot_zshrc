@@ -139,6 +139,13 @@ function _fzf_filter_dirs() {
 zle -N _fzf_filter_dirs
 bindkey '^s^d' _fzf_filter_dirs
 
+function ghqcd() {
+  local repo=$(ghq list | fzf)
+  if [ -n "$repo" ]; then
+    cd "$(ghq root)/$repo"
+  fi
+}
+
 function rgv() {
   if [ $# -eq 0 ]; then
     echo 'Usage: rgv <search_string> [search_dir]'
