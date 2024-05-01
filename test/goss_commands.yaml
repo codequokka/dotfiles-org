@@ -76,6 +76,14 @@ command:
     exec: kubectl
     exit-status: 0
 
+  kubectx:
+    exec: kubectx --version
+    exit-status: 0
+
+  kubens:
+    exec: kubectx --version
+    exit-status: 0
+
   lazydocker:
     exec: lazydocker --version
     exit-status: 0
