@@ -34,6 +34,16 @@ keybinds clear-defaults=true {
         bind "|" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "," { SwitchToMode "RenameTab"; }
         bind "[" { SwitchToMode "Scroll"; }
+        bind "1" { GoToTab 1; }
+        bind "2" { GoToTab 2; }
+        bind "3" { GoToTab 3; }
+        bind "4" { GoToTab 4; }
+        bind "5" { GoToTab 5; }
+        bind "5" { GoToTab 5; }
+        bind "6" { GoToTab 6; }
+        bind "7" { GoToTab 7; }
+        bind "8" { GoToTab 8; }
+        bind "9" { GoToTab 9; }
         bind "Ctrl b" { Write 2; SwitchToMode "Normal"; }
         bind "Left" { MoveFocus "Left"; SwitchToMode "Normal"; }
         bind "Right" { MoveFocus "Right"; SwitchToMode "Normal"; }
