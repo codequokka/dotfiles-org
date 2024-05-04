@@ -1,5 +1,9 @@
 ---
 command:
+  act:
+    exec: act --version
+    exit-status: 0
+
   age:
     exec: age --help
     exit-status: 0
