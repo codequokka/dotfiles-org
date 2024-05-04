@@ -16,6 +16,7 @@ fpath=(
 export WORDCHARS='*?_.[]~-=&;!#$%^(){}<>'
 export EDITOR='nvim'
 export XDG_CONFIG_HOME="${HOME}/.config"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # ------------------------------------------------------------------------------
 # Keybindings
@@ -290,4 +291,12 @@ function zvm_after_init() {
   zvm_bindkey viins '^S^F' _fzf_filter_files
   zvm_bindkey viins '^S^D' _fzf_filter_dirs
   zvm_bindkey viins '^J' execute_zoxide
+}
+
+# ------------------------------------------------------------------------------
+# Bat
+# ------------------------------------------------------------------------------
+alias bathelp='bat --plain --language=help'
+help() {
+  "$@" --help 2>&1 | bathelp
 }
