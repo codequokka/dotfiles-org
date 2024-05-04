@@ -276,3 +276,13 @@ function execute_zoxide() {
 }
 zle -N execute_zoxide
 bindkey '^j' execute_zoxide
+
+# ------------------------------------------------------------------------------
+# Zsh vi mode
+# ------------------------------------------------------------------------------
+function zvm_after_init() {
+  zvm_bindkey viins '^R' _fzf_filter_command_histories
+  zvm_bindkey viins '^S^F' _fzf_filter_files
+  zvm_bindkey viins '^S^D' _fzf_filter_dirs
+  zvm_bindkey viins '^J' execute_zoxide
+}
