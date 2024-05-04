@@ -280,6 +280,11 @@ bindkey '^j' execute_zoxide
 # ------------------------------------------------------------------------------
 # Zsh vi mode
 # ------------------------------------------------------------------------------
+function zvm_config() {
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+}
+
 function zvm_after_init() {
   zvm_bindkey viins '^R' _fzf_filter_command_histories
   zvm_bindkey viins '^S^F' _fzf_filter_files

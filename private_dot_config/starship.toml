@@ -69,15 +69,18 @@ style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
+disabled = false
 symbol = ""
 style = "bg:#FCA17D"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
+disabled = false
 style = "bg:#FCA17D"
 format = '[$all_status$ahead_behind ]($style)'
 
 [docker_context]
+disabled = false
 symbol = " "
 style = "bg:#06969A"
 format = '[ $symbol $context ]($style) $path'
@@ -86,3 +89,7 @@ format = '[ $symbol $context ]($style) $path'
 disabled = false
 style = "bg:#06969A"
 format = '[$symbol ($cluster) ($namespace)]($style)'
+
+[character]
+disabled = false
+vimcmd_symbol = '[V](bold green)'
