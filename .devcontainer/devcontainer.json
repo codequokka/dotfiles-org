@@ -11,6 +11,8 @@
   "mounts": [
     "source=${localEnv:HOME}/.zsh_history,target=/home/vscode/.zsh_history,type=bind,consistency=cached"
   ],
+  "onCreateCommand": "${containerWorkspaceFolder}/install.sh",
+  "features": {},
   "customizations": {
     "vscode": {
       "settings": {
@@ -21,22 +23,18 @@
             "source.fixAll": "explicit"
           }
         },
-        "[shellscript]": {
-          "editor.defaultFormatter": "foxundermoon.shell-format"
-        },
+        "[shellscript]": {},
         "terminal.integrated.defaultProfile.linux": "zsh",
         "terminal.integrated.profiles.linux": {
           "zsh": {
             "path": "/usr/bin/zsh"
           }
-        },
-        "pathintellisense.enable": true
+        }
       },
       "extensions": [
         "christian-kohler.path-intellisense",
         "mads-hartmann.bash-ide-vscode",
         "rogalmic.bash-debug",
-        "foxundermoon.shell-format",
         "timonwong.shellcheck",
         "tamasfe.even-better-toml",
         "esbenp.prettier-vscode",
@@ -45,7 +43,5 @@
         "ms-azuretools.vscode-docker"
       ]
     }
-  },
-  "onCreateCommand": "${containerWorkspaceFolder}/install.sh",
-  "features": {}
+  }
 }
