@@ -4,7 +4,6 @@
     "dockerfile": "Dockerfile"
   },
   "remoteUser": "ubuntu",
-  "containerUser": "ubuntu",
   "containerEnv": {
     "TZ": "Asia/Tokyo"
   },
@@ -42,7 +41,8 @@
         "tamasfe.even-better-toml",
         "esbenp.prettier-vscode",
         "github.vscode-github-actions",
-        "signageos.signageos-vscode-sops"
+        "signageos.signageos-vscode-sops",
+        "ms-azuretools.vscode-docker"
       ]
     }
   },
