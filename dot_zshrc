@@ -233,7 +233,7 @@ eval "$(starship completions zsh)"
 # Tmux
 # ------------------------------------------------------------------------------
 # Start the tmux session if not alraedy in the tmux session
-if [[ ! -n $TMUX ]]; then
+if [[ ! -n "$TMUX" ]]; then
   # Get the session IDs
   session_ids="$(tmux list-sessions)"
 
