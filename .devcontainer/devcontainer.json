@@ -9,7 +9,7 @@
   },
   "runArgs": ["--init"],
   "mounts": [
-    "source=${localEnv:HOME}/.zsh_history,target=/home/vscode/.zsh_history,type=bind,consistency=cached"
+    "source=${localEnv:HOME}/.zsh_history,target=/home/ubuntu/.zsh_history,type=bind,consistency=cached"
   ],
   "onCreateCommand": "${containerWorkspaceFolder}/install.sh",
   "features": {},
