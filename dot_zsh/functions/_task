@@ -1,4 +1,5 @@
 #compdef task
+# shellcheck disable=all
 
 local context state state_descr line
 typeset -A opt_args
