@@ -104,6 +104,10 @@ command:
     exec: sops --version
     exit-status: 0
 
+  task:
+    exec: task --version
+    exit-status: 0
+
   yq:
     exec: yq --version
     exit-status: 0
