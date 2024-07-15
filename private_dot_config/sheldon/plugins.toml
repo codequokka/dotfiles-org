@@ -26,10 +26,6 @@ zsh-defer source "{{ file }}"
 github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
 
-[plugins.cd-gitroot]
-github = "mollifier/cd-gitroot"
-apply = ["defer"]
-
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 apply = ["defer"]
@@ -49,3 +45,6 @@ apply = ["defer"]
 [plugins.zsh-vi-mode]
 github = "jeffreytse/zsh-vi-mode"
 apply = ["defer"]
+
+[plugins.powerlevel10k]
+github = "romkatv/powerlevel10k"
