@@ -49,3 +49,6 @@ apply = ["defer"]
 [plugins.zsh-vi-mode]
 github = "jeffreytse/zsh-vi-mode"
 apply = ["defer"]
+
+[plugins.powerlevel10k]
+github = "romkatv/powerlevel10k"
