@@ -47,7 +47,7 @@ manage_os_packages
 # -----------------------------------------------------------------------------
 # Terminal
 # -----------------------------------------------------------------------------
-# Plugin manager
+# Tmux plugin manager
 if [[ ! -e ~/.tmux/plugins/tpm ]]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   # env TMUX_PLUGIN_MANAGER_PATH=~/.tmux/plugins ~/.tmux/plugins/tpm/bin/install_plugins
@@ -56,5 +56,6 @@ fi
 # -----------------------------------------------------------------------------
 # Shell
 # -----------------------------------------------------------------------------
+# Zsh
 USER=$(whoami)
 sudo chsh "$USER" -s /usr/bin/zsh
