@@ -13,11 +13,16 @@ manage_os_packages() {
     packages=(
       fuse
       git
-      # zsh
+      zsh
     )
 
     for package in "${packages[@]}"; do
-      sudo apt-get install -y "$package"
+      if [ "$package" == 'zsh' ]; then
+        # NOTE: In installing zsh, it stops by prompt, so add the force option to avoid that.
+        sudo apt-get install -y -f "$package"
+      else
+        sudo apt-get install -y "$package"
+      fi
     done
   elif (type 'dnf' >/dev/null 2>&1); then
     # Redhat variants
@@ -30,7 +35,7 @@ manage_os_packages() {
       fuse
       git
       util-linux-user
-      # zsh
+      zsh
     )
 
     for package in "${packages[@]}"; do
@@ -58,5 +63,5 @@ fi
 # Shell
 # -----------------------------------------------------------------------------
 # Zsh
-# USER=$(whoami)
-# sudo chsh "$USER" -s /usr/bin/zsh
+USER=$(whoami)
+sudo chsh "$USER" -s /usr/bin/zsh
