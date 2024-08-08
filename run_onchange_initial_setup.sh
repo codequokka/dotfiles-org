@@ -13,7 +13,7 @@ manage_os_packages() {
     packages=(
       fuse
       git
-      zsh
+      # zsh
     )
 
     for package in "${packages[@]}"; do
@@ -30,7 +30,7 @@ manage_os_packages() {
       fuse
       git
       util-linux-user
-      zsh
+      # zsh
     )
 
     for package in "${packages[@]}"; do
@@ -58,5 +58,5 @@ fi
 # Shell
 # -----------------------------------------------------------------------------
 # Zsh
-USER=$(whoami)
-sudo chsh "$USER" -s /usr/bin/zsh
+# USER=$(whoami)
+# sudo chsh "$USER" -s /usr/bin/zsh
