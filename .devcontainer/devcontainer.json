@@ -6,13 +6,14 @@
   },
   "runArgs": ["--init"],
   "mounts": [
-    "source=${localEnv:HOME}/.zsh_history,target=/home/ubuntu/.zsh_history,type=bind,consistency=cached"
+    "source=${localEnv:HOME}/.zsh_history,target=/home/vscode/.zsh_history,type=bind,consistency=cached"
   ],
   "onCreateCommand": "${containerWorkspaceFolder}/install.sh",
   "features": {},
   "customizations": {
     "vscode": {
       "settings": {
+        "editor.fontFamily": "'0xProto Nerd Font', monospace",
         "[json][jsonc]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.formatOnSave": true,
@@ -37,7 +38,8 @@
         "esbenp.prettier-vscode",
         "github.vscode-github-actions",
         "signageos.signageos-vscode-sops",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "eamodio.gitlens"
       ]
     }
   }
