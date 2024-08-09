@@ -1,9 +1,6 @@
 {
   "name": "dotfiles-development",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "remoteUser": "ubuntu",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04",
   "containerEnv": {
     "TZ": "Asia/Tokyo"
   },
