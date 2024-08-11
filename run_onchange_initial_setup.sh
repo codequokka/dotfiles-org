@@ -17,12 +17,7 @@ manage_os_packages() {
     )
 
     for package in "${packages[@]}"; do
-      if [ "$package" == 'zsh' ]; then
-        # NOTE: In installing zsh, it stops by prompt, so add the force option to avoid that.
-        sudo apt-get install -y -f "$package"
-      else
-        sudo apt-get install -y "$package"
-      fi
+      sudo apt-get install -y "$package"
     done
   elif (type 'dnf' >/dev/null 2>&1); then
     # Redhat variants
